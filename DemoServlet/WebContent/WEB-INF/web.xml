@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>DemoServlet</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+  	<param-name>projectName</param-name>
+  	<param-value>This is DemoServlet project</param-value>
+  </context-param>
+    <listener>
+    	<listener-class>
+    		taitt.demo.servletcontextlistener.MyServletContextListener
+    	</listener-class>
+	</listener> 
+  <filter>
+  	<filter-name>MyFilter1</filter-name>
+  	<filter-class>taitt.demo.filter.MyFilter1</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>MyFilter1</filter-name>
+  	<url-pattern>/Servlet1</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>MyFilter2</filter-name>
+  	<filter-class>taitt.demo.filter.MyFilter2</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>MyFilter2</filter-name>
+  	<url-pattern>/Servlet1</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+  	<servlet-name>Servlet1</servlet-name>
+  	<servlet-class>taitt.demo.servlet.Servlet1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Servlet1</servlet-name>
+  	<url-pattern>/Servlet1</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>Servlet2</servlet-name>
+  	<servlet-class>taitt.demo.servlet.Servlet2</servlet-class>
+  	<init-param>
+  		<param-name>servletName</param-name>
+  		<param-value>This is Servlet2</param-value>
+  	</init-param>
+  	 <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Servlet2</servlet-name>
+  	<url-pattern>/Servlet2</url-pattern>
+  </servlet-mapping>
+</web-app>
